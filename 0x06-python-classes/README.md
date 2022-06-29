@@ -1,2 +1,3 @@
-# 0x06. Python - Classes and Objects
-These projects are about Classes and Objects on Python (a higher-level language).
+## Still on it!
+
+please, don't send me creepy messages unless its something I can relate...hua!

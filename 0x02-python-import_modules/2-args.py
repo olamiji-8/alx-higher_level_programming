@@ -1,11 +1,18 @@
 #!/usr/bin/python3
-if __name__ == '__main__':
-    import sys
-    lists = sys.argv
-    length = len(sys.argv)
-    if length == 1:
-        print(f"{length - 1} arguments.")
+from sys import argv
+
+
+def principal():
+    print('{} argument'.format(len(argv) - 1), end='')
+    if len(argv) == 1:
+        print('s.')
+    elif len(argv) == 2:
+        print(':')
     else:
-        print(f"{length - 1} {'argument' if length == 2 else 'arguments'}:")
-    for i in range(1, length):
-        print(f"{i}: {lists[i]}")
+        print('s:')
+    for i in range(1, len(argv)):
+        print('{}: {}'.format(i, argv[i]))
+
+
+if __name__ == "__main__":
+    principal()
