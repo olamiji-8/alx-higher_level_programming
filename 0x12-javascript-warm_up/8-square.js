@@ -1,11 +1,19 @@
 #!/usr/bin/node
-const size = Math.floor(Number(process.argv[2]));
-if (isNaN(size)) {
+// script that prints a square
+const size = parseInt(process.argv[2]);
+
+if (!Number.isInteger(size)) {
   console.log('Missing size');
 } else {
-  for (let r = 0; r < size; r++) {
-    let row = '';
-    for (let c = 0; c < size; c++) row += 'X';
-    console.log(row);
+  let i = 0;
+  while (i < size) {
+    let j = 0;
+    let square = '';
+    while (j < size) {
+      square += 'X';
+      j += 1;
+    }
+    console.log(square);
+    i += 1;
   }
 }
