@@ -1,6 +1,3 @@
-'use strict';
-$(() => {
-  $('DIV#red_header').click(() => {
-    $('header').css('color', '#FF0000');
-  });
+$('DIV#red_header').on('click', function () {
+  $('header').css('color', '#FF0000');
 });

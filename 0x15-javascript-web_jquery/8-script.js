@@ -1,10 +1,8 @@
-'use strict';
-$(() => {
-  const BASE_URL = 'https://swapi-api.hbtn.io/api';
-
-  $.get(`${BASE_URL}/films/?format=json`, (data, status) => {
-    data.results.forEach(film => {
-      $('UL#list_movies').append(`<li>${film.title}</li>`);
-    });
+(function () {
+  const api = 'https://swapi-api.alx-tools.com/api/films/?format=json';
+  $.getJSON(api, function (json) {
+    for (const result of json.results) {
+      $('UL#list_movies').append('<li>' + result.title + '</li>');
+    }
   });
-});
+})();

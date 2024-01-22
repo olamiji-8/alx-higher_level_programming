@@ -1,6 +1,3 @@
-'use strict';
-$(() => {
-  $('DIV#update_header').click(() => {
-    $('header').text('New Header!!!');
-  });
+$('DIV#update_header').on('click', function () {
+  $('header').replaceWith('<header>New Header!!!</header>');
 });

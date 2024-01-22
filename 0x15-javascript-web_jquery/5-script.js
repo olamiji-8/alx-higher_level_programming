@@ -1,9 +1,3 @@
-'use strict';
-$(() => {
-  $('DIV#add_item').click(() => {
-    const newItem = document.createElement('li');
-
-    newItem.textContent = 'Item';
-    $('UL.my_list').append(newItem);
-  });
+$('DIV#add_item').on('click', function () {
+  $('UL.my_list').append('<li>Item</li>');
 });

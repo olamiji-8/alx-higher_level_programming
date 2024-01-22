@@ -1,8 +1,6 @@
-'use strict';
-$(() => {
-  const BASE_URL = 'https://fourtonfish.com';
-
-  $.get(`${BASE_URL}/hellosalut/?lang=fr`, (data, status) => {
-    $('DIV#hello').html(data.hello);
+(function () {
+  const api = 'https://fourtonfish.com/hellosalut/?lang=fr';
+  $.getJSON(api, function (data) {
+    $('DIV#hello').wrapInner(data.hello);
   });
-});
+})();
