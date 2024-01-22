@@ -1,21 +1,19 @@
 #!/usr/bin/node
 const request = require('request');
+const url = process.argv[2];
 
-if (process.argv.length > 2) {
-  request(process.argv[2], (err, res, body) => {
-    const aggregate = {};
-
-    if (err) {
-      console.log(err);
-    }
-    JSON.parse(body).forEach(element => {
-      if (element.completed) {
-        if (!aggregate[element.userId]) {
-          aggregate[element.userId] = 0;
-        }
-        aggregate[element.userId]++;
+request(url, (err, res, body) => {
+  if (err) console.error(err);
+  if (res.statusCode === 200) {
+    const toDo = JSON.parse(body);
+    const completed = {};
+    toDo.forEach(task => {
+      if (task.completed === true) {
+        task.userId in completed ? (completed[task.userId] += 1) : (completed[task.userId] = 1);
       }
     });
-    console.log(aggregate);
-  });
-}
+    console.log(completed);
+  } else {
+    console.log(`Error code: ${res.statusCode}`);
+  }
+});
